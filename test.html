@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+<meta charset="utf-8">
+
+<head>
+    <title>test</title>
+</head>
+
+<body>
+    <div ng-controller="parentController">
+        <p>{{breadCrumb}},parentController</p>
+        <div ng-controller="currentController">
+            <p>{{breadCrumb}},currentController</p>
+            <button ng-click="$emit('MyEvent')">
+                $emit("MyEvent")
+            </button>
+            <button ng-click="$broadcast('MyEvent')">
+                $broadcast("MyEvent")
+            </button>
+            <div ng-controller="childController">
+                <p>{{breadCrumb}},childController</p>
+            </div>
+        </div>
+        <div ng-controller="sameLevelController">
+            <p>{{breadCrumb}},sameLevelController</p>
+        </div>
+    </div>
+    <div ng-controller="other_controller">
+        <button ng-click="$emit('MyEvent')">
+            $emit("MyEvent")
+        </button>
+        <button ng-click="$broadcast('MyEvent')">
+            $broadcast("MyEvent")
+        </button>
+        <p>{{breadCrumb}},other_controller</p>
+    </div>
+</body>
+<script type="text/javascript" src="angularjs1.2.7.js"></script>
+<script type="text/javascript" src="mvc1.js"></script>
+
+</html>
